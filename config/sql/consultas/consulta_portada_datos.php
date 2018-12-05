@@ -1,25 +1,26 @@
  <?php
     require("../../conexion.php");
-    define("CONTACTO", 6);
     define("ACTIVADA", 1);
 
-    $tipo_carpeta = CONTACTO;
     $estado = ACTIVADA;
 
-    $consulta = "SELECT id, celular, correo FROM carpeta_imagenes_det WHERE id_carpeta = (SELECT id FROM carpeta_imagenes WHERE tipo = ? and activa = ?)";
+    $consulta = "SELECT id,direccion,celular, telefono, call_center, correo FROM contactos WHERE estado = 1 ";
 
     $st = $mysqli->prepare($consulta);
-    $st->bind_param("ii", $tipo_carpeta, $estado);
+/*    $st->bind_param("ii", $estado);*/
     $st->execute();
     $st->store_result();
 
     if ($st->num_rows > 0) {
-        $st->bind_result($id, $celular, $correo);
+        $st->bind_result($id, $direccion,$celular,$telefono,$call_center, $correo);
 
         while ($st->fetch()) {
             $data = array(
                 "id" => $id,
+                "direccion" => $direccion,
                 "celular" => $celular,
+                "telefono" => $telefono,
+                "call_center" => $call_center,
                 "correo" => $correo
             );
             $filas[]=$data;

@@ -3,7 +3,7 @@ function ocultar_alert() {
 }
 
 function login() {
-	$("#frm_login").validate({
+	$("#form_login").validate({
  		debug: true,
  		errorClass: "my-error-class",
 		rules:  {
@@ -24,7 +24,7 @@ function login() {
 		}
  	});
 
- 	if ($("#frm_login").valid()) {
+ 	if ($("#form_login").valid()) {
  		var usuario=$("#txt_usuario").val();
 		var clave=$("#txt_clave").val();
 

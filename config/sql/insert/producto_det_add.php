@@ -8,7 +8,7 @@
 
 	$descripcion_producto = nl2br($descripcion_producto);
 
-	$update = "UPDATE carpeta_imagenes_det set nombre_producto = ?, descripcion_producto = ?  where id = ?";
+	$update = "UPDATE propiedades_det set nombre_producto = ?, descripcion_producto = ?  where id = ?";
 
 	$st = $mysqli->prepare($update);
 	$st->bind_param("ssi", $nombre_producto, $descripcion_producto, $id_producto);

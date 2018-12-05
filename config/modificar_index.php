@@ -9,36 +9,34 @@
 	<title></title>
 </head>
 <body>
+<!-- <div  class="body2">
+ -->
 	<input type="hidden" name="oculto_id_carpeta" id="oculto_id_carpeta">
-	<div class="col-sm-12">
-		<center><h2>Administrar carpetas de imágenes</h2></center>
-	</div>
+<!-- 	<div class="col-sm-12">
+		<h3>Administrar carpetas de imágenes</h3>
+	</div> -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
-				<form class="form-group" id="frm_crear_carpeta">
+<!-- 				<form class="form-group" id="frm_crear_carpeta"> -->
+				<form id="frm_crear_carpeta">
+					<h3>Administrar carpetas de imágenes</h3>
 					<div class="row">
-						<div class="col-lg-5 col-md-5 col-sm-12">
+						<div class="col-lg-5 col-md-5 col-sm-12 pad1">
 							<input type="text" name="txt_nombre_carpeta" id="txt_nombre_carpeta" class="form-control" placeholder="Nombre de carpeta">
 						</div>
 
-						<div class="col-lg-3 col-md-3 col-sm-12">
+						<div class="col-lg-3 col-md-3 col-sm-12 pad1">
 							<select class="form-control" id="cmb_tipo_carpeta" name="cmb_tipo_carpeta">
-							    <option value="1">Eventos</option>
-							    <option value="2">Promociones</option>
-							    <option value="3">Productos</option>
-							    <option value="4">Portada</option>
-							    <option value="5">Quienes Somos</option>
-							    <option value="6">Datos Contacto</option>
+							    <option value="1">Portada</option>
+							    <option value="2">Propiedades en Venta</option>
+							    <option value="3">Propiedades en Renta</option>
 							</select>
 						</div>
 
-						<div class="col-lg-2 col-md-2 col-sm-12">
-							<input type="button" class="btn btn-primary form-control" value="Guardar" id="btn_crear_carpeta" name="btn_crear_carpeta">
-						</div>
-
-						<div class="col-lg-2 col-md-2 col-sm-12">
-							<input type="button" class="btn btn-danger form-control" value="Cancelar" id="btn_cancelar" name="btn_cancelar">
+						<div class="col-lg-4 col-md-4 col-sm-12">
+							<a href="#" class="button" id="btn_crear_carpeta" name="btn_crear_carpeta" >Guardar</a>
+							<a href="#" class="button" id="btn_limpiar" onClick="document.getElementById('ContactForm').reset()">Limpiar</a>
 						</div>
 					</div>
 				</form>
@@ -112,5 +110,6 @@
 	</div>
 
 	<script type="text/javascript" src="js/modificar_index.js"></script>
+<!-- </div> -->
 </body>
 </html>

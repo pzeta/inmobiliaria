@@ -17,7 +17,7 @@
 			
 			$rutaArchivo=$carpetaAdjunta.$nombreArchivo;
 			
-			$consulta = "insert into carpeta_imagenes_det (id_carpeta, nombre_imagen) values (?, ?)";
+			$consulta = "insert into propiedades_det (id_propiedad, nombre_imagen) values (?, ?)";
 			$st = $mysqli->prepare($consulta);
 			$st->bind_param("is", $carpeta_nueva, $nombreArchivo);
 			if ($st->execute()) {

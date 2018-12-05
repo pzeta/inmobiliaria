@@ -1,0 +1,136 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body {background:#eee;border:0;font:15px Arial, Helvetica, sans-serif;line-height:20px}
+.container { background: #c7c1c1;}
+.main { margin:0 auto;width:100%}
+.body2 {background:#c7c1c1}
+.container-fluid {width: 100%;margin-right: auto;margin-left: auto;}
+
+
+/****** LOGIN MODAL ******/
+.loginmodal-container {
+  padding: 30px;
+  max-width: 500px;
+  width: 100% !important;
+  background-color: #2e2e2e;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+
+.loginmodal-container h1 {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+}
+
+.loginmodal {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+}
+
+.loginmodal-container a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    transition: opacity ease 0.5s;
+} 
+
+
+/*Alertas*/
+.hidden {display: none !important;}
+.alert {padding: 15px;margin-bottom: 20px;border: 1px solid transparent;border-radius: 4px;}
+
+/*Barra Menu configuracion*/
+#navbarsExample03 li a:hover, .active a {color:#87a310}
+#navbarsExample03 li a {display:inline-block;overflow:hidden;font-size:21px;color:#d4d3d3;line-height:1.2em;text-decoration:none;letter-spacing:-1px}
+li {list-style: none;}
+
+/*Menu*/
+.bg-dark {background-color: #2e2e2e !important;}
+.navbar-expand-md {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+.navbar {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+.navbar-dark .navbar-brand {
+    color: #fff;
+}
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    display:block;
+    background:url(../../images/logo_menu.png) 0 0 no-repeat;
+    width:100px;
+    height:38px;
+    text-indent:-9999px;
+}
+.navbar-nav .nav-link:hover {color: rgba(255,255,255,.75);}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #454545;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+
+/*Modificar Index*/
+/*Formulario administracion imagenes*/
+/*h3 {font-size:24px;color:#87a310;line-height:1.2em;padding:19px 0 19px 0} */
+h3 {font-size:24px;color:#87a310;line-height:1.2em;padding:19px 0 19px 0}
+#frm_crear_carpeta {background:#454545;padding-bottom:16px;color:#bababa;padding-right: 15px;padding-left: 15px;}
+#frm_crear_carpeta h3 {padding:23px 0 4px 0;border-bottom:1px solid #8c8c8c;margin-bottom:15px}
+/*#frm_crear_carpeta span {width:70%}
+#frm_crear_carpeta .wrapper {min-height:30px; padding-top: 15px;}
+#frm_crear_carpeta .textarea_box {min-height:100px;width:100%;overflow:hidden;padding-bottom:10px} */
+#frm_crear_carpeta a {margin-right:10px;float:left}
+#frm_crear_carpeta .input {width:254px;background:#fff;padding:13px 10px;color:#191919;font:12px Arial, Helvetica, sans-serif;height:14px}
+/*#frm_crear_carpeta textarea {overflow:auto;background:#fff;padding:3px 10px;color:#191919;font:12px Arial, Helvetica, sans-serif;height:100px;margin:0}*/
+#frm_crear_carpeta .button {margin-top:17px;background-image:url(../../images/button_bg_form.png);width:94px}
+#frm_crear_carpeta .pad1 {padding:0 33px}
+.button {display:inline-block;width:89px;line-height:26px;height:26px;color:#fff;text-decoration:none;background:url(../images/button_bg.png) 0 0 no-repeat;text-align:center}
+.button:hover {background-position:bottom;color:#191919}

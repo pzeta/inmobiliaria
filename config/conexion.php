@@ -1,8 +1,5 @@
 <?php
-	// $mysqli=mysqli_connect("10.8.91.42", "root", "wordpress", "db_finanzas");
-	// $server="PRODUCCION";
-
-	$mysqli=mysqli_connect('localhost', 'root', '', 'kingentretenciones');
+	$mysqli=mysqli_connect('localhost', 'root', '', 'inmobiliariazucasa');
 	$server="TESTING";
 
 	$version_sys="4.0";

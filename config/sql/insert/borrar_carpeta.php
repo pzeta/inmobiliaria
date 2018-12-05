@@ -3,7 +3,7 @@
 	require("../../conexion.php");
 	$id_carpeta = $_POST['id_carpeta'];
 
-	$delete = "DELETE FROM carpeta_imagenes WHERE id = ?";
+	$delete = "DELETE FROM propiedades WHERE id = ?";
 
 	// echo $delete;
 	$st = $mysqli->prepare($delete);

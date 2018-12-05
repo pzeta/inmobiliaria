@@ -123,7 +123,7 @@ function cancelar() {
 $(document).ready(function() {
     var tipo_car =  $("#cmb_tipo_carpeta").val();
 	$("#btn_crear_carpeta").click(validar_form);
-    $("#btn_cancelar").click(cancelar);
+    $("#btn_limpiar").click(cancelar);
     $("#cmb_tipo_carpeta").on("change", function(tipo_carpeta){
         filtrar_tipo_carpeta($(this).val());
     })

@@ -10,14 +10,14 @@
 
 	$mysqli->autocommit(false);
 
-	$upd_desactiva = "UPDATE carpeta_imagenes set activa = ? where tipo = ?";
+	$upd_desactiva = "UPDATE propiedades set estado = ? where tipo = ?";
 
 	$st = $mysqli->prepare($upd_desactiva);
 	$st->bind_param("ii", $estado, $tipo_carpeta);
 
 	if ($st->execute()) {
 		$estado = ACTIVADA;
-		$upd_activa_carpeta = "UPDATE carpeta_imagenes set activa = ? where id = ?";
+		$upd_activa_carpeta = "UPDATE propiedades set estado = ? where id = ?";
 
 		$st2 = $mysqli->prepare($upd_activa_carpeta);
 		$st2->bind_param("ii", $estado, $id);
