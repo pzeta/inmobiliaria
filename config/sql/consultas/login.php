@@ -8,7 +8,7 @@
 	$st->bind_param("ss", $user, $clave);
 	$st->execute();
 	$st->store_result();
-	echo $st->store_result();
+	/*echo $st->store_result();*/
 
 	if ($st->num_rows > 0) {
 		$st->bind_result($usuario, $nombre_usuario);

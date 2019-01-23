@@ -25,6 +25,8 @@
             );
             $filas[]=$data;
         }
+        session_start();
+        $_SESSION['contacto']=$data["correo"];
         echo json_encode($filas);
     } else {
         echo '{"data":[]}';

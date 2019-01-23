@@ -50,8 +50,9 @@ body {background:#eee;border:0;font:15px Arial, Helvetica, sans-serif;line-heigh
 .alert {padding: 15px;margin-bottom: 20px;border: 1px solid transparent;border-radius: 4px;}
 
 /*Barra Menu configuracion*/
-#navbarsExample03 li a:hover, .active a {color:#87a310}
+/*#navbarsExample03 li a:hover, .active a {color:#87a310}*/
 #navbarsExample03 li a {display:inline-block;overflow:hidden;font-size:21px;color:#d4d3d3;line-height:1.2em;text-decoration:none;letter-spacing:-1px}
+#navbarsExample03 li a:hover, #navbarsExample03 .menu_active a {color:#87a310}
 li {list-style: none;}
 
 /*Menu*/
@@ -134,3 +135,154 @@ h3 {font-size:24px;color:#87a310;line-height:1.2em;padding:19px 0 19px 0}
 #frm_crear_carpeta .pad1 {padding:0 33px}
 .button {display:inline-block;width:89px;line-height:26px;height:26px;color:#fff;text-decoration:none;background:url(../images/button_bg.png) 0 0 no-repeat;text-align:center}
 .button:hover {background-position:bottom;color:#191919}
+
+/*Tabla*/
+/*#grid_carpeta {width: 100%;}
+#grid_carpeta_wrapper {width: 100%;}
+#grid_carpeta_wrapper .row{width: 100%;}
+*/
+/*Paginacion*/
+div.dataTables_wrapper div.dataTables_paginate {
+    margin: 0;
+    white-space: nowrap;
+    text-align: right;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.pagination > li {
+    display: inline;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+        border-top-color: rgb(221, 221, 221);
+        border-right-color: rgb(221, 221, 221);
+        border-bottom-color: rgb(221, 221, 221);
+        border-left-color: rgb(221, 221, 221);
+}
+
+
+/*Dialogos*/
+.modal-body {background: #c7c1c1;}
+.modal-dialog {max-width: 90%;margin: 1.75rem auto;}
+.modal-header {padding: 15px;border-bottom: 1px solid #e5e5e5;background: #eee;justify-content: flex-end;}
+.modal-footer {background: #eee;}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.fade.in {
+    opacity: 1;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.btn {border: 1px solid #b6b4b4;}
+
+/*Tabla*/
+/*#grid_productos_det {width: 100%  !important;}
+#grid_productos_det_wrapper {width: 100% ;}
+#grid_productos_det_wrapper .row{width: 100%;}
+#grid_productos_det_wrapper {background: #eee;padding: 1rem 1rem 1rem 1rem;}*/
+
+table.dataTable {
+
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+/*    max-width: none !important;*/
+    border-collapse: separate !important;
+
+}
+
+/*Formulario Detalle Propiedad*/
+#frm_producto_det {background:#454545;padding-bottom:16px;color:#bababa;padding-right: 15px;padding-left: 15px;}
+#frm_producto_det h3 {padding:23px 0 4px 0;border-bottom:1px solid #8c8c8c;margin-bottom:15px}
+#frm_producto_det a {margin-right:10px;float:left}
+#frm_producto_det label {padding-top:3px;margin-bottom: .1rem;}
+#frm_producto_det .input {width:254px;background:#fff;padding:13px 10px;color:#191919;font:12px Arial, Helvetica, sans-serif;height:14px}
+#frm_producto_det .button {margin-top:17px;background-image:url(../../images/button_bg_form.png);width:94px}
+#frm_producto_det .row {min-height:46px;width:100%}
+#frm_producto_det .row_select {min-height:46px;width:100%}
+#frm_producto_det .cols {width:50%}
+#frm_producto_det .pad_left1 {padding-left:13px}
+#frm_producto_det .pad_bot1 {padding-bottom:9px}
+#frm_producto_det .pad1 {padding:0 33px}
+
+/* Subir Imagen*/
+#frm_subir_img {background:#454545;padding-bottom:16px;color:#bababa;padding-right: 15px;padding-left: 15px;}
+#frm_subir_img h3 {padding:23px 0 4px 0;border-bottom:1px solid #8c8c8c;margin-bottom:15px}
+#frm_subir_img .button {margin-top:17px;background-image:url(../../images/button_bg_form.png);width:94px}
+.h4, h4 {font-size: 1.1rem;}
+.file-preview {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: #eee;
+}
+.btn-primary {color: #fff;background-color: #87a310;border-color: #87a310;}
+.btn-primary:hover {background-position:bottom;background-color: #87a310;color:#191919}
+
+/*Formulario Contacto*/
+#frm_crear_contacto {background:#454545;padding-bottom:16px;color:#bababa;padding-right: 15px;padding-left: 15px;}
+#frm_crear_contacto h3 {padding:23px 0 4px 0;border-bottom:1px solid #8c8c8c;margin-bottom:15px}
+#frm_crear_contacto a {margin-right:10px;float:left}
+#frm_crear_contacto label {padding-top:3px;margin-bottom: .1rem;}
+#frm_crear_contacto .input {width:254px;background:#fff;padding:13px 10px;color:#191919;font:12px Arial, Helvetica, sans-serif;height:14px}
+#frm_crear_contacto .button {margin-top:17px;background-image:url(../../images/button_bg_form.png);width:94px}
+#frm_crear_contacto .row {min-height:46px;width:100%}
+#frm_crear_contacto .row_select {min-height:46px;width:100%}
+#frm_crear_contacto .cols {width:50%}
+#frm_crear_contacto .pad_left1 {padding-left:13px}
+#frm_crear_contacto .pad_bot1 {padding-bottom:9px}
+#frm_crear_contacto .pad1 {padding:0 33px}

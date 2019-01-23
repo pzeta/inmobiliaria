@@ -6,7 +6,7 @@
 	$nombre_carpeta = $_POST['nombre_carpeta'];
 	$id = $_POST['id'];
 
-	$update = "UPDATE propiedades set glosa = ? where id = ?";
+	$update = "UPDATE carpeta_propiedades set glosa = ? where id = ?";
 
 	$st=$mysqli->prepare($update);
 	$st->bind_param("si", $nombre_carpeta, $id);

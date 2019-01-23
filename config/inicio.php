@@ -13,7 +13,6 @@
       <meta name="viewport" content="width=device-width, user-scalable=no, initial_scale=1.0, minimun-scale=1.0">
       <link rel="stylesheet" href="../css/bootstrap.min.css">
       <link href="css/estilo_config.css" rel="stylesheet">
-    <!-- 	<link href="../css/estilos.css" rel="stylesheet"> -->
       <link href="librerias/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
       <link href="librerias/css/dataTables.bootstrap.min.css" rel="stylesheet">
       <link href="librerias/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
@@ -31,8 +30,10 @@
 
             <div class="collapse navbar-collapse" id="navbarsExample03">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" id="btn_index" onclick="setLink('modificar_index.php')">Adm. Imágenes</a></li>
+                    <li class="nav-item menu_active" id="link1">
+                        <a class="nav-link" href="#" id="btn_index1">Adm. Imágenes</a></li>
+                    <li class="nav-item " id="link2">
+                        <a class="nav-link" href="#" id="btn_index2">Datos Contacto</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item dropdown">
@@ -54,13 +55,11 @@
         </div>    
 
         <div class="container-fluid">
-    		    <div id="contenido" style="background-color: #fff"></div>
+    		    <div id="contenido" ></div>
     	  </div>
-    	   
-
         <script src="../js/jquery.min.js" type="text/javascript"></script>
-        <script src="librerias/js/fileinput.min.js" type="text/javascript"></script>
       	<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="librerias/js/fileinput.min.js" type="text/javascript"></script>
     	  <script src="librerias/js/jquery-validation/dist/jquery.validate.js" type="text/javascript"></script>
         <script src="librerias/js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="librerias/js/dataTables.bootstrap.min.js" type="text/javascript"></script>

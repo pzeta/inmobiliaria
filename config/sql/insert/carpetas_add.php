@@ -7,7 +7,7 @@
 	$tipo_carpeta = $_POST['tipo_carpeta'];
 	$activa = NO;
 
-	$insert = "INSERT INTO propiedades (glosa, tipo, estado)
+	$insert = "INSERT INTO carpeta_propiedades (glosa, tipo, estado)
 			VALUES (?,?,?)";
 
 	$st=$mysqli->prepare($insert);

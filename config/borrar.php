@@ -10,9 +10,9 @@
 		parse_str(file_get_contents("php://input"),$datosDELETE);
 		$key = $datosDELETE['key'];
 
-		$delete = "DELETE FROM carpeta_imagenes_det WHERE id = (
+		$delete = "DELETE FROM propiedades_det WHERE id = (
 				    SELECT * FROM (
-				        SELECT id FROM carpeta_imagenes_det WHERE nombre_imagen = ? AND id_carpeta = ?
+				        SELECT id FROM propiedades_det WHERE nombre_imagen = ? AND id_carpeta_pro = ?
 				    ) as id 
 				)";
 

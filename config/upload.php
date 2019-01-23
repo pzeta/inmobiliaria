@@ -17,12 +17,12 @@
 			
 			$rutaArchivo=$carpetaAdjunta.$nombreArchivo;
 			
-			$consulta = "insert into propiedades_det (id_propiedad, nombre_imagen) values (?, ?)";
+			$consulta = "insert into propiedades_det (id_carpeta_pro, nombre_imagen) values (?, ?)";
 			$st = $mysqli->prepare($consulta);
 			$st->bind_param("is", $carpeta_nueva, $nombreArchivo);
 			if ($st->execute()) {
 				move_uploaded_file($nombreTemporal,$rutaArchivo);
-				$infoImagenesSubidas[$i]=array("caption"=>"$nombreArchivo","height"=>"120px","url"=>"borrar.php","key"=>$nombreArchivo);
+				$infoImagenesSubidas[$i]=array("caption"=>"$nombreArchivo","height"=>"120px","url"=>"borrar.php?ruta=<?php echo $carpeta_nueva; ?>","key"=>$nombreArchivo);
 				$ImagenesSubidas[$i]="<img  height='120px'  src='$rutaArchivo' class='file-preview-image'>";
 			} else {
 				$mysqli->rollback();

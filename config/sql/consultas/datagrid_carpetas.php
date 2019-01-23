@@ -2,7 +2,7 @@
 	session_start();
 	require("../../conexion.php");
 	$tipo_carpeta = $_GET["tipo_carpeta"];
-	$consulta = "SELECT id, glosa as carpeta, IFNULL(ELT(FIELD(tipo, 1, 2, 3, 4),'Portada','Propiedades en Venta','Propiedades en Renta', 'Datos Contacto'), 'Sin categoría') as tipo, tipo as id_tipo, estado FROM propiedades where tipo = ? order by id asc";
+	$consulta = "SELECT id, glosa as carpeta, IFNULL(ELT(FIELD(tipo, 1, 2, 3, 4),'Portada','Propiedades en Venta','Propiedades en Renta', 'Datos Contacto'), 'Sin categoría') as tipo, tipo as id_tipo, estado FROM carpeta_propiedades where tipo = ? order by id asc";
 	$st = $mysqli->prepare($consulta);
 	$st->bind_param("i", $tipo_carpeta);
 	$st->execute();

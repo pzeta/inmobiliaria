@@ -49,6 +49,7 @@ function crear_carpeta() {
             	$(".alert-success").removeClass("hidden");
             	$("#txt_nombre_carpeta").val("");
                 $("#oculto_id_carpeta").val("");
+                $("#txt_nombre_carpeta").attr("disabled",true);
             	window.setTimeout(ocultar_alert,3000,"alert-success");
             } else {
             	$("#alerta_error").text(data);
@@ -64,18 +65,19 @@ function ocultar_alert() {
 	$(".alert-success" ).addClass("hidden");
 }
 
-function activar_carpeta(id, tipo_carpeta) {
+function activar_carpeta(id, tipo_carpeta, estado) {
     $.ajax({
         url: "sql/insert/activar_carpeta.php",
         data: {
             id: id,
-            tipo_carpeta: tipo_carpeta 
+            tipo_carpeta: tipo_carpeta,
+            estado: estado 
         },
         type: "POST",
         success: function(data) {
             if (data == 1) {
                 filtrar_tipo_carpeta(tipo_carpeta);
-                $("#alerta_mensaje").text("Activada con éxito.");
+                $("#alerta_mensaje").text("Activada/Desactivada con éxito.");
                 $(".alert-success").removeClass("hidden");
                 window.setTimeout(ocultar_alert,3000,"alert-success");
             } else {
@@ -118,6 +120,12 @@ function borrar_carpeta(id_carpeta, tipo_carpeta) {
 function cancelar() {
     $("#txt_nombre_carpeta").val("");
     $("#oculto_id_carpeta").val("");
+    $("#txt_nombre_carpeta").attr("disabled",true);
+    var table = $('#grid_carpeta').DataTable();
+     
+    table
+        .clear()
+        .draw();
 }
 
 $(document).ready(function() {
@@ -125,6 +133,7 @@ $(document).ready(function() {
 	$("#btn_crear_carpeta").click(validar_form);
     $("#btn_limpiar").click(cancelar);
     $("#cmb_tipo_carpeta").on("change", function(tipo_carpeta){
+        $("#txt_nombre_carpeta").attr("disabled",false);
         filtrar_tipo_carpeta($(this).val());
     })
 
@@ -139,7 +148,7 @@ $(document).ready(function() {
                 "data": "id_tipo",
                 "render": function(data, type, row)
                 {
-                    const CONTACTO = 6;
+                    const CONTACTO = 4;
                     var boton_disabled;
                     if (data == CONTACTO) {
                         boton_disabled = "...";
@@ -160,17 +169,12 @@ $(document).ready(function() {
                     const QUIENES_SOMOS = 5;
                     const CONTACTO = 6;
                     var boton_disabled;
-                    if (data == PRODUCTOS || data == QUIENES_SOMOS || data == CONTACTO) {
-                        boton_disabled = "<button type='button' class='descripcion btn btn-default' title='Agregar Descripción a los Productos'><i class='material-icons' style='font-size:25px;'>settings</i></button>";
-                    } else {
-                        boton_disabled = "...";
-                    }
-
+                    boton_disabled = "<button type='button' class='descripcion btn btn-default' title='Agregar Descripción a las Propiedades'><i class='material-icons' style='font-size:25px;'>settings</i></button>";
                     return boton_disabled;
                 }
             },
             { 
-                "data": "activa",
+                "data": "estado",
                 "render": function(data, type, row)
                 {
                     const ACTIVADA = 1;
@@ -209,34 +213,63 @@ $(document).ready(function() {
 
     $("#grid_carpeta tbody").on("click", "button.adjuntar", function () {
         var data = grid_carpeta.row( $(this).parents("tr") ).data();
-
+        if(data == undefined) { 
+            var selected_row = $(this).parents('tr');
+            if (selected_row.hasClass('child')) {
+                selected_row = selected_row.prev();
+            }   
+            var data = $('#grid_carpeta').DataTable().row(selected_row).data();
+        }
         var id = data['id'];
         var carpeta = data['carpeta'];
         var tipo = data['tipo'];
+        var id_tipo = data['id_tipo'];
+        var estado_carpeta = data['estado'];
+        if(estado_carpeta==1){
 
-        $("#prf_subttl_carpeta").text(carpeta + ", " + tipo + ". Máximo 20 imágenes.");
+        $("#prf_subttl_carpeta").text("Subir imágenes a la carpeta: "+carpeta + ", " + tipo + ".");
         $("#divContentSubirImg").load(
             "subir_imagenes.php",
             {
                 "id_carpeta": id,
                 "nombre_carpeta": carpeta,
-                "tipo_carpeta": tipo
+                "tipo_carpeta": id_tipo
             }
         );
         $('#dlg_adjuntar_img').modal('show');
+        } else {
+                $("#alerta_error").text('Carpeta Inactiva, no se pueden adjuntar imagenes');
+                $(".alert-danger").removeClass("hidden");
+                window.setTimeout(ocultar_alert,3000,".alert-danger");
+        }
     });
 
     $("#grid_carpeta tbody").on("click", "button.editar", function () {
         var data = grid_carpeta.row( $(this).parents("tr") ).data();
+        if(data == undefined) { 
+            var selected_row = $(this).parents('tr');
+            if (selected_row.hasClass('child')) {
+                selected_row = selected_row.prev();
+            }   
+            var data = $('#grid_carpeta').DataTable().row(selected_row).data();
+        }
         var id = data['id'];
         var nombre_carpeta = data['carpeta'];
 
         $("#oculto_id_carpeta").val(id);
         $("#txt_nombre_carpeta").val(nombre_carpeta);
+        $("#txt_nombre_carpeta").attr("disabled",false);
     });
 
     $("#grid_carpeta tbody").on("click", "button.eliminar", function () {
         var data = grid_carpeta.row( $(this).parents("tr") ).data();
+        if(data == undefined) { 
+            var selected_row = $(this).parents('tr');
+            if (selected_row.hasClass('child')) {
+                selected_row = selected_row.prev();
+            }   
+            var data = $('#grid_carpeta').DataTable().row(selected_row).data();
+        }
         var id = data['id'];
         var tipo_carpeta = data['id_tipo'];
 
@@ -245,45 +278,48 @@ $(document).ready(function() {
 
     $("#grid_carpeta tbody").on("click", "button.descripcion", function () {
         var data = grid_carpeta.row( $(this).parents("tr") ).data();
+        if(data == undefined) { 
+            var selected_row = $(this).parents('tr');
+            if (selected_row.hasClass('child')) {
+                selected_row = selected_row.prev();
+            }   
+            var data = $('#grid_carpeta').DataTable().row(selected_row).data();
+        }
         var id = data['id'];
         var carpeta = data['carpeta'];
         var tipo = data['id_tipo'];
-        const QUIENES_SOMOS = 5;
-        const CONTACTO = 6;
-
-        if (tipo == CONTACTO) {
-            $("#divContenedorProductos").load(
-                "contacto_detalle.php",
-                {
-                    "id_carpeta": id,
-                    "nombre_carpeta": carpeta,
-                    "tipo_carpeta": tipo
-                }
-            );            
-        } else {
-            if (tipo == QUIENES_SOMOS) {
-                $("#txt_nombre_dialogo").text("Descripción Quienes Somos");
-            } else {
-                $("#txt_nombre_dialogo").text("Descripción Productos");
+        var estado_carpeta = data['estado'];
+        if(estado_carpeta==1){
+    /*    $("#txt_nombre_dialogo").text("Descripción Propiedades");*/
+        $("#divContenedorProductos").load(
+            "detalle_propiedades.php",
+            {
+                "id_carpeta": id,
+                "nombre_carpeta": carpeta,
+                "tipo_carpeta": tipo
             }
-
-            $("#divContenedorProductos").load(
-                "productos_detalle.php",
-                {
-                    "id_carpeta": id,
-                    "nombre_carpeta": carpeta,
-                    "tipo_carpeta": tipo
-                }
-            );
-        }
+        );
         $('#dlg_descripcion_productos').modal('show');
+        } else {
+                $("#alerta_error").text('Carpeta Inactiva, no se puede registrar información');
+                $(".alert-danger").removeClass("hidden");
+                window.setTimeout(ocultar_alert,3000,".alert-danger");
+        }
     });
 
     $("#grid_carpeta tbody").on("click", "button.activar", function () {
         var data = grid_carpeta.row( $(this).parents("tr") ).data();
+        if(data == undefined) { 
+            var selected_row = $(this).parents('tr');
+            if (selected_row.hasClass('child')) {
+                selected_row = selected_row.prev();
+            }   
+            var data = $('#grid_carpeta').DataTable().row(selected_row).data();
+        }
         var id = data['id'];
         var tipo_carpeta = data['id_tipo'];
+        var estado = data['estado'];
 
-        activar_carpeta(id, tipo_carpeta);
+        activar_carpeta(id, tipo_carpeta, estado);
     });
 });
