@@ -140,9 +140,15 @@ function limpiar() {
     clearValidation(myForm);
 }
 
+function formulario_busqueda(){
+    $("#form_busqueda").load(
+        "busqueda.html"
+    );
+}
 
 $(document).ready(function() {
     cargar_contacto();
+    formulario_busqueda();
     $('#correo_electronico').blur('blur', function() {
         /*/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/*/
         if (this.value.length > 0) {
